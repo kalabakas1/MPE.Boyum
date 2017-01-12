@@ -19,13 +19,14 @@ namespace MPE.Boyum.WPF
         private IWebOrderCalculationService _webOrderCalculationService;
         public MainWindow(
             IFileObjectReader<XmlWebOrder, WebOrder> fileReader,
-            IWebOrderCalculationService webOrderCalculationService)
+            IWebOrderCalculationService webOrderCalculationService,
+            WebOrderViewModel viewModel)
         {
             _fileReader = fileReader;
             _webOrderCalculationService = webOrderCalculationService;
-
-            DataContext = new WebOrderViewModel();
             InitializeComponent();
+
+            DataContext = viewModel;
         }
 
         private void OpenFileDialogBtn_Click(object sender, RoutedEventArgs e)
@@ -52,11 +53,13 @@ namespace MPE.Boyum.WPF
                 if (order.HasValue)
                 {
                     var orderObj = order.Value;
+                    ((WebOrderViewModel) DataContext).WebOrder = orderObj;
+                    
                     ObjIdValue.Content = orderObj.Id;
                     ObjCustomerValue.Content = orderObj.Customer;
-                    ObjDateValue.Content = orderObj.Date.ToString("dd.MMMM.yyyy");
-                    ObjPriceAverageValue.Content = _webOrderCalculationService.CalculateAverage(orderObj);
-                    ObjTotalValue.Content = _webOrderCalculationService.CalculateTotal(orderObj);
+                    ObjDateValue.Content = orderObj.Date.ToString("dd. MMMM. yyyy");
+                    ObjPriceAverageValue.Content = _webOrderCalculationService.CalculateAverage(orderObj).Formatted();
+                    ObjTotalValue.Content = _webOrderCalculationService.CalculateTotal(orderObj).Formatted();
                 }
             }
             catch (ParseException ex)

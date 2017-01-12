@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MPE.Boyum.WPF.ViewModels;
 using SimpleInjector;
 
 namespace MPE.Boyum.WPF
@@ -14,6 +15,7 @@ namespace MPE.Boyum.WPF
         {
             var container = Setup.Container;
             container.Register<MainWindow>();
+            container.Register<WebOrderViewModel>();
             container.Verify();
 
             RunApplication(container);

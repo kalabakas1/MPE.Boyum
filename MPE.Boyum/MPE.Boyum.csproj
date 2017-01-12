@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\LogLevels.cs" />
+    <Compile Include="Extensions\DecimalExtensions.cs" />
     <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="Interfaces\IWebOrderCalculationService.cs" />
     <Compile Include="Interfaces\IConverter.cs" />

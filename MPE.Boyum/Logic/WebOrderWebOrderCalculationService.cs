@@ -8,12 +8,12 @@ namespace MPE.Boyum.Logic
     {
         public decimal CalculateAverage(WebOrder order)
         {
-            return order.Items?.Average(x => x.Price) ?? 0;
+            return order?.Items?.Average(x => x.Price) ?? 0;
         }
 
         public decimal CalculateTotal(WebOrder order)
         {
-            return order.Items?.Sum(x => x.Price * x.Quantity) ?? 0;
+            return order?.Items?.Sum(x => x.Price * x.Quantity) ?? 0;
         }
     }
 }
