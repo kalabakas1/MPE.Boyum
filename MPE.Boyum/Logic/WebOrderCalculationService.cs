@@ -4,7 +4,7 @@ using MPE.Boyum.Models;
 
 namespace MPE.Boyum.Logic
 {
-    internal class WebOrderWebOrderCalculationService : IWebOrderCalculationService
+    internal class WebOrderCalculationService : IWebOrderCalculationService
     {
         public decimal CalculateAverage(WebOrder order)
         {

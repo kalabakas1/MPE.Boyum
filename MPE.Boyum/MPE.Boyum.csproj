@@ -62,7 +62,7 @@
     <Compile Include="Logic\Builders\Builder.cs" />
     <Compile Include="Logic\Builders\Converters\WebOrderItemXmlConverter.cs" />
     <Compile Include="Logic\Builders\Converters\WebOrderXmlConverter.cs" />
-    <Compile Include="Logic\WebOrderWebOrderCalculationService.cs" />
+    <Compile Include="Logic\WebOrderCalculationService.cs" />
     <Compile Include="Logic\Exceptions\ParseException.cs" />
     <Compile Include="Logic\Logger.cs" />
     <Compile Include="Models\WebOrder.cs" />

@@ -6,7 +6,6 @@ using MPE.Boyum.Interfaces;
 using MPE.Boyum.Logic.Exceptions;
 using MPE.Boyum.Models;
 using MPE.Boyum.Models.Data;
-using MPE.Boyum.WPF.ViewModels;
 
 namespace MPE.Boyum.WPF
 {
@@ -19,14 +18,11 @@ namespace MPE.Boyum.WPF
         private IWebOrderCalculationService _webOrderCalculationService;
         public MainWindow(
             IFileObjectReader<XmlWebOrder, WebOrder> fileReader,
-            IWebOrderCalculationService webOrderCalculationService,
-            WebOrderViewModel viewModel)
+            IWebOrderCalculationService webOrderCalculationService)
         {
             _fileReader = fileReader;
             _webOrderCalculationService = webOrderCalculationService;
             InitializeComponent();
-
-            DataContext = viewModel;
         }
 
         private void OpenFileDialogBtn_Click(object sender, RoutedEventArgs e)
@@ -53,8 +49,6 @@ namespace MPE.Boyum.WPF
                 if (order.HasValue)
                 {
                     var orderObj = order.Value;
-                    ((WebOrderViewModel) DataContext).WebOrder = orderObj;
-                    
                     ObjIdValue.Content = orderObj.Id;
                     ObjCustomerValue.Content = orderObj.Customer;
                     ObjDateValue.Content = orderObj.Date.ToString("dd. MMMM. yyyy");

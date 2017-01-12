@@ -39,7 +39,7 @@ namespace MPE.Boyum
             container.Register<IConverter<XmlWebOrder, WebOrder>, WebOrderXmlConverter>();
             container.Register<IConverter<XmlWebOrderItem, WebOrderItem>, WebOrderItemXmlConverter>();
 
-            container.Register<IWebOrderCalculationService, WebOrderWebOrderCalculationService>();
+            container.Register<IWebOrderCalculationService, WebOrderCalculationService>();
 
             return container;
         }
