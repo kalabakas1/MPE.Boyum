@@ -14,18 +14,15 @@ namespace MPE.Boyum.Client
     {
         static void Main(string[] args)
         {
-            var fileReader = Setup.Container.GetInstance<IFileObjectReader>();
+            var fileReader = Setup.Container.GetInstance<IFileObjectReader<XmlWebOrder, WebOrder>>();
 
             var filePath = @".\Data\WebOrder_42.xml";
 
-            var obj = fileReader.Read<XmlWebOrder>(filePath);
+            var obj = fileReader.Read(filePath);
 
             if (obj.HasValue)
             {
                 Console.WriteLine(JsonConvert.SerializeObject(obj.Value, Formatting.Indented));
-                var converter = Setup.Container.GetInstance<IConverter<XmlWebOrder, WebOrder>>();
-
-                var bobj = converter.Build(obj.Value);
             }
             else
             {

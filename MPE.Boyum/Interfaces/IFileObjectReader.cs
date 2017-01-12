@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Functional.Maybe;
+﻿using Functional.Maybe;
 
 namespace MPE.Boyum.Interfaces
 {
-    public interface IFileObjectReader
+    public interface IFileObjectReader<T, TK>
     {
-        Maybe<T> Read<T>(string filePath);
+        Maybe<TK> Read(string filePath);
     }
 }

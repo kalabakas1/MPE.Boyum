@@ -1,36 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.IO;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Functional.Maybe;
 using MPE.Boyum.Enums;
 using MPE.Boyum.Interfaces;
 using MPE.Boyum.Logic.Exceptions;
 
-namespace MPE.Boyum.Logic.Readers
+namespace MPE.Boyum.Logic.Repositories
 {
-    internal class XmlFileObjectReader : IFileObjectReader
+    internal class XmlFileObjectReader<T, TK> : IFileObjectReader<T, TK>
     {
         private ILogger _logger;
+        private IConverter<T, TK> _converter;
         public XmlFileObjectReader(
-            ILogger logger)
+            ILogger logger,
+            IConverter<T, TK> converter)
         {
             _logger = logger;
+            _converter = converter;
         }
 
-        public virtual Maybe<T> Read<T>(string filePath)
+        public virtual Maybe<TK> Read(string filePath)
         {
-            var returnObject = default(T);
+            var xmlObject = default(T).ToMaybe();
 
             try
             {
                 using (var reader = new StreamReader(filePath))
                 {
                     var serializer = new XmlSerializer(typeof(T));
-                    returnObject = (T)serializer.Deserialize(reader);
+                    xmlObject = ((T)serializer.Deserialize(reader)).ToMaybe();
                 }
             }
             catch (Exception ex)
@@ -39,7 +38,9 @@ namespace MPE.Boyum.Logic.Readers
                 throw new ParseException($"Not able to parse XML document to {typeof(T).Name}", ex);
             }
 
-            return returnObject.ToMaybe();
+            if (xmlObject.HasValue)
+                return _converter.Build(xmlObject.Value).ToMaybe();
+            return default(TK).ToMaybe();
         }
     }
 }

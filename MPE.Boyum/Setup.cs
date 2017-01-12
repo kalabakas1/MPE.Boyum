@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using MPE.Boyum.Interfaces;
+﻿using MPE.Boyum.Interfaces;
 using MPE.Boyum.Logic;
-using MPE.Boyum.Logic.Builders;
 using MPE.Boyum.Logic.Builders.Converters;
-using MPE.Boyum.Logic.Readers;
+using MPE.Boyum.Logic.Repositories;
 using MPE.Boyum.Models;
 using MPE.Boyum.Models.Data;
 using SimpleInjector;
@@ -39,12 +34,10 @@ namespace MPE.Boyum
 
             container.Register<ILogger, Logger>();
 
-            container.Register<IFileObjectReader, XmlFileObjectReader>();
+            container.Register<IFileObjectReader<XmlWebOrder, WebOrder>, XmlFileObjectReader<XmlWebOrder, WebOrder>>();
 
             container.Register<IConverter<XmlWebOrder, WebOrder>, WebOrderXmlConverter>();
             container.Register<IConverter<XmlWebOrderItem, WebOrderItem>, WebOrderItemXmlConverter>();
-
-
             container.Verify();
 
             return container;
