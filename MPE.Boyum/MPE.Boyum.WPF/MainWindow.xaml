@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MPE.Boyum.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MPE.Boyum" Height="241.379" Width="525">
     <Grid>
-        
+        <Label x:Name="FilePickerLbl" Content="Input XML" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="FilePickerPathTxtBox" HorizontalAlignment="Left" Height="23" Margin="80,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="324"/>
+        <Button x:Name="ProcessBtn" Content="Process" HorizontalAlignment="Left" Margin="432,20,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Height="23"/>
+        <Button x:Name="OpenFileDialogBtn" Content="..." HorizontalAlignment="Left" Margin="409,20,0,0" VerticalAlignment="Top" Width="18" Height="23"/>
+        <GroupBox x:Name="XmlFileResultGrp" Header="Result" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,48,0,0" Height="154" Width="427">
+            <WrapPanel HorizontalAlignment="Left" Height="131" Margin="0,0,-2,0" VerticalAlignment="Top" Width="417">
+                <Label x:Name="ObjIdLbl" Content="Id" Width="83">
+                </Label>
+                <Label x:Name="ObjIdValue" Content="-" RenderTransformOrigin="1.212,0.995" Width="308"/>
+                <Label x:Name="ObjCustomerLbl" Content="Customer" Width="83"/>
+                <Label x:Name="ObjCustomerValue" Content="-" RenderTransformOrigin="1.212,0.995" Width="308"/>
+                <Label x:Name="ObjDateLbl" Content="Date" Width="83"/>
+                <Label x:Name="ObjDateValue" Content="-" RenderTransformOrigin="1.212,0.995" Width="308"/>
+                <Label x:Name="ObjPriceAverageLbl" Content="Price Average" Width="83"/>
+                <Label x:Name="ObjPriceAverageValue" Content="-" RenderTransformOrigin="1.212,0.995" Width="308"/>
+                <Label x:Name="ObjTotalLbl" Content="Total" Width="83"/>
+                <Label x:Name="ObjTotalValue" Content="-" RenderTransformOrigin="1.212,0.995" Width="308"/>
+            </WrapPanel>
+        </GroupBox>
+
     </Grid>
 </Window>
