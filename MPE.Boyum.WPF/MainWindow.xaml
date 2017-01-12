@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MPE.Boyum.WPF"
         mc:Ignorable="d"
-        Title="MPE.Boyum" Height="241.379" Width="525">
+        Title="MPE.Boyum" Height="252.189" Width="536.75">
     <Grid>
         <Label x:Name="FilePickerLbl" Content="Input XML" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="FilePickerPathTxtBox" HorizontalAlignment="Left" Height="23" Margin="80,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="324"/>
-        <Button x:Name="ProcessBtn" Content="Process" HorizontalAlignment="Left" Margin="432,20,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Height="23"/>
-        <Button x:Name="OpenFileDialogBtn" Content="..." HorizontalAlignment="Left" Margin="409,20,0,0" VerticalAlignment="Top" Width="18" Height="23"/>
+        <Button x:Name="ProcessBtn" Content="Process" HorizontalAlignment="Left" Margin="432,20,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="ProcessBtn_Click"/>
+        <Button x:Name="OpenFileDialogBtn" Content="..." HorizontalAlignment="Left" Margin="409,20,0,0" VerticalAlignment="Top" Width="18" Height="23" Click="OpenFileDialogBtn_Click"/>
         <GroupBox x:Name="XmlFileResultGrp" Header="Result" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,48,0,0" Height="154" Width="427">
             <WrapPanel HorizontalAlignment="Left" Height="131" Margin="0,0,-2,0" VerticalAlignment="Top" Width="417">
                 <Label x:Name="ObjIdLbl" Content="Id" Width="83">

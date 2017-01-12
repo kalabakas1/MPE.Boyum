@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MPE.Boyum.Models
 {
-    public  class WebOrder
+    public class WebOrder
     {
         public int Id { get; set; }
         public string Customer { get; set; }

@@ -54,11 +54,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\LogLevels.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Interfaces\IWebOrderCalculationService.cs" />
     <Compile Include="Interfaces\IConverter.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Logic\Builders\Builder.cs" />
     <Compile Include="Logic\Builders\Converters\WebOrderItemXmlConverter.cs" />
     <Compile Include="Logic\Builders\Converters\WebOrderXmlConverter.cs" />
+    <Compile Include="Logic\WebOrderWebOrderCalculationService.cs" />
     <Compile Include="Logic\Exceptions\ParseException.cs" />
     <Compile Include="Logic\Logger.cs" />
     <Compile Include="Models\WebOrder.cs" />
@@ -74,9 +77,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Logic\Validation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
